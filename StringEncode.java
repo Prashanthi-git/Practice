@@ -68,7 +68,7 @@ public class StringEncode {
 	    public static String deciphering(String ciphered){
 	        //Write your code here
 	    	StringBuffer dicipher1 = new StringBuffer();
-	    	for(int i=0; i< ciphered.length()-1; i=i+3) {
+	    	for(int i=0; i< ciphered.length()-1; i++) {
 	    		if(ciphered.charAt(i)=='*') {
 	    			dicipher1.append(" ");
 	    		}
@@ -76,12 +76,21 @@ public class StringEncode {
 	    			dicipher1.append(ciphered.charAt(i));
 	    			//System.out.println("adding char " + ciphered.charAt(i));
 	    		}
-	    		if(i+3<ciphered.length()) {
+	    		int num =0;
+    			int count =0;
+	    		for(int j=i+1;j<ciphered.length();j++) {
 	    	       // System.out.println(ciphered.substring(i+1, i+3));
 	    		   // System.out.println(Integer.parseInt(ciphered.substring(i+1, i+3)));
-	    		    StringBuffer c = dicipher1.append((char)Integer.parseInt(ciphered.substring(i+1, i+3)));
-	    		    if(c.charAt(c.length()-1)=='*') {
-	    		    	dicipher1.setCharAt(c.length()-1,' ');
+	    			num = num * 10 + (ciphered.charAt(j) - '0');
+	    			count++;
+	    			if(num>=32 && num<=122) {
+	    				char c = (char)num;
+	    		        if(c=='*') {
+	    		    	     dicipher1.append(' ');
+	    		        }else {
+	    		    	     dicipher1.append(c);
+	    		        }
+	    		        i = i+count;
 	    		    }
 	    		}
 	    	}
