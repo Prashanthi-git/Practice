@@ -1,0 +1,36 @@
+import java.util.Date;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        Date now = new Date();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the String");
+        String given= scan.nextLine();
+        char rec;
+        int count = 1;
+        StringBuilder output = new StringBuilder();
+        rec = given.charAt(0);
+        for(int i=1; i<given.length(); i++){
+          if (given.charAt(i) == rec){
+            count++;
+          }
+          else{
+            output.append(given.charAt(i-1));
+            output.append(count);
+            count = 1;
+            rec = given.charAt(i);
+          }
+          System.out.println(rec);
+        }
+        System.out.println("new String is " + output.toString());
+        char cu[] = {'d','c','v'};
+        System.out.println("char array to String " + cu);
+        for(int i=0; i<cu.length;i++){
+          System.out.print(cu[i]);
+        }
+        System.out.println("Hello World!");
+        System.out.println("now: " + now);
+    }
+}
