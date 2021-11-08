@@ -1,0 +1,36 @@
+
+import java.io.*;
+import java.util.*;
+
+/*
+ * To execute Java, please define "static void main" on a class
+ * named Solution.
+ *
+ * If you need more classes, simply define them inline.
+ */
+
+public class AnagramCheck {
+  public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in);
+    String s1 = scan.next();
+    String s2 = scan.next();
+    if(s1.length()==s2.length()){
+        char[] s1Array = s1.toCharArray();
+        char[] s2Array = s2.toCharArray();
+        Arrays.sort(s1Array);
+        Arrays.sort(s2Array);
+        int i;
+        for(i=0; i<s1.length(); i++){
+          if(s1Array[i]!=s2Array[i]){
+            System.out.println("Two strings are not anagrams");
+            break;
+          }
+        }
+        if(i==s1.length()){
+            System.out.println("Two strings are anagrams");
+        }
+    }else{
+      System.out.println("Two strings are not anagrams");
+    }
+  }
+}
