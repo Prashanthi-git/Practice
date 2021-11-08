@@ -1,0 +1,27 @@
+
+import java.io.*;
+import java.util.*;
+
+/*
+ * To execute Java, please define "static void main" on a class
+ * named Solution.
+ *
+ * If you need more classes, simply define them inline.
+ */
+
+public class Substrings {
+  public static void main(String[] args) {
+      Scanner scan = new Scanner(System.in);
+      String given = scan.next();
+      HashSet<String> subStrings = new HashSet<String>();
+      for(int i=1; i<=given.length(); i++){
+          for(int j=0; j<=given.length()-i; j++){
+              subStrings.add(given.substring(j,i+j));
+              //System.out.println(given.substring(j,i+j));
+          }
+      }
+      //System.out.println("++++++++++++++++++++++");
+      Iterator<String> strings = subStrings.iterator();
+      strings.forEachRemaining(System.out::println);
+  }
+}
